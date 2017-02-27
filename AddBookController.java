@@ -18,17 +18,17 @@ public class AddBookController {
         this.view = view;
         this.model = model;
         
-        this.view.addSaveListener(new SaveListener());
-        this.view.addClearListener(new ClearListener());
+        this.view.addSaveListener(new listenforSave());
+        this.view.addClearListener(new listenforClear());
     }
     
-    class SaveListener implements ActionListener{
+    class listenforSave implements ActionListener{
         
         @Override
         public void actionPerformed(ActionEvent e){
             connect = DatabaseConn.getConnection();
             try {
-                String query = "INSERT INTO BOOK (TITLE, AUTHOR, GENRE, ISBN, DESCRIPTION, KEYWORDS, OWNEDREAD) VALUES (?, ?, ?, ?, ?, ?);";
+                String query = "INSERT INTO BOOKS (TITLE, AUTHOR, GENRE, ISBN, DESCRIPTION, KEYWORDS, OWNEDREAD) VALUES (?, ?, ?, ?, ?, ?);";
                 PreparedStatement pst = connect.prepareStatement(query);
                 pst.setString(1, view.getTitle());
                 pst.setString(2, view.getAuthor());
@@ -46,7 +46,7 @@ public class AddBookController {
         }
     }
     
-    class ClearListener implements ActionListener{
+    class listenforClear implements ActionListener{
         
         @Override
         public void actionPerformed(ActionEvent e){
