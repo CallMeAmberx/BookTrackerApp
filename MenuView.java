@@ -1,6 +1,6 @@
 package booktrackingapp;
 
-import java.awt.GridBagLayout;
+import java.awt.*;
 import javax.swing.*;
 
 /**
@@ -10,31 +10,21 @@ import javax.swing.*;
 public class MenuView extends JFrame{
     
     private AddBookModel AddModel;
-    private AddBookView AddView;
+    private AddBookView AddView = new AddBookView();;
     JFrame frame = new JFrame();
 
-    JTabbedPane tabbedPane = new JTabbedPane();
+    public JTabbedPane tabbedPane = new JTabbedPane();
     
 public MenuView(){
     frame.getContentPane().add(tabbedPane);
     frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    frame.setSize(600, 400);
+    frame.setSize(525, 320);
     frame.setLocationRelativeTo(null);
     frame.setVisible(true);
-    
-    AddView = new AddBookView();
+    frame.setLayout(new FlowLayout());
     
     tabbedPane.add("Add a Book", AddView);
     
-    
-        
-    //tabbedPane.add("Second", sp);
-    //frame.getContentPane().add(tabbedPane);
-
-    /*frame.setLocationRelativeTo(null);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize (300, 300);
-    frame.setResizable(false); */  
     
     /*MenuPanel.add(name);
     MenuPanel.add(mustache);*/
